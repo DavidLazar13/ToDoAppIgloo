@@ -9,12 +9,12 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                <div v-for="todo in todos" :key="todo.id" class="d-flex justify-content-between py-2">
+                <div v-for="(todo, index) in todos" :key="todo.id" class="d-flex justify-content-between py-2">
                     <div>
                      {{todo.title}} 
                     </div>
                     <div>
-                        <button type="button" class="btn btn-info">x</button>
+                        <button type="button" class="btn btn-info" @click="removeTodo(index)">x</button>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
         },
         methods: {
             addTodo() {
-                if(this.userTodo.trim().lenght == 0){
+                if(this.userTodo.trim().length == 0){
                     return
                 }
                 this.todos.push({
@@ -56,6 +56,9 @@
 
                 this.userTodo = ''
                 this.idForTodo++
+            },
+            removeTodo(index) {
+                this.todos.splice(index, 1)
             }
         }
     }
