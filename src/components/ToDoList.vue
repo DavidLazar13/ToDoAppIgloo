@@ -3,14 +3,17 @@
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your tasks here" aria-describedby="emailHelp" 
-                v-model="userInput" @keyup.enter="addTodo">
+                v-model="userTodo" @keyup.enter="addTodo">
             </div>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div v-for="todo in todos" :key="todo.id">
-                    {{todo.title}}
+                    <div>
+                     {{todo.title}} <button type="button" class="btn btn-info">x</button>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -21,7 +24,8 @@
         name: 'todo-list',
         data () {
             return{
-                userInput: '',
+                userTodo: '',
+                idForTodo: 3, 
                 todos: [
                     {
                         'id': 1,
@@ -38,7 +42,17 @@
         },
         methods: {
             addTodo() {
-                alert('to do task added')
+                if(this.userTodo.trim().lenght == 0){
+                    return
+                }
+                this.todos.push({
+                    id: this.idForTodo,
+                    title: this.userTodo,
+                    completed: false
+                })
+
+                this.userTodo = ''
+                this.idForTodo++
             }
         }
     }
