@@ -1,6 +1,8 @@
 # todoapp
 
-> A Vue.js project
+> A simple ToDo app very user friendly. I choosed a very basic design with some modern touches like shadows and custom checkboxes. 
+
+
 
 ## Build Setup
 
