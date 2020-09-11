@@ -16,16 +16,15 @@ export default {
   name: 'app',
   components: {
     ToDoList
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
   }
 }
 </script>
 
 <style>
+body{
+  background-color: #f5f5f5
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

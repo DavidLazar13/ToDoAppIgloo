@@ -9,13 +9,13 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                <div v-for="(todo, index) in todos" :key="todo.id" class="d-flex justify-content-between py-2">
-                    <div>
-                    <input type="checkbox" d="checkbox2" class="btn btn-success" v-model="todo.done">
-                     <span :class="{completed : todo.done}">{{todo.title}}</span>
+                <div v-for="(todo, index) in todos" :key="todo.id" class="d-flex justify-content-between align-items-center my-3 bg-white shadow-sm rounded">
+                    <div class="pl-2">
+                        <input type="checkbox" id="checkbox2" class="btn btn-success" v-model="todo.done">
+                        <span :class="{completed : todo.done}">{{todo.title}}</span>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-info" @click="removeTodo(index)">x</button>
+                        <button type="button" class="btn btn-warning" @click="removeTodo(index)">x</button>
                     </div>
                 </div>
             </div>
