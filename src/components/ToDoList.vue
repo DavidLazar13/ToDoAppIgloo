@@ -11,7 +11,8 @@
             <div class="col-6">
                 <div v-for="(todo, index) in todos" :key="todo.id" class="d-flex justify-content-between py-2">
                     <div>
-                     {{todo.title}} 
+                    <input type="checkbox" d="checkbox2" class="btn btn-success" v-model="todo.done">
+                     <span :class="{completed : todo.done}">{{todo.title}}</span>
                     </div>
                     <div>
                         <button type="button" class="btn btn-info" @click="removeTodo(index)">x</button>
@@ -51,7 +52,7 @@
                 this.todos.push({
                     id: this.idForTodo,
                     title: this.userTodo,
-                    completed: false
+                    done: false
                 })
 
                 this.userTodo = ''
@@ -65,4 +66,52 @@
 </script>
 
 <style>
+
+.completed{
+    text-decoration: line-through;
+    color: green;
+}
+
+/* checkbox */
+
+    label {
+  font-size: 20px;
+}
+
+label > input[type="checkbox"] {
+  margin-top: -1px;
+  margin-right: 7px;
+}
+
+input[type="checkbox"] {
+  visibility: hidden;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+input[type="checkbox"]:after {
+  background: url("https://s3.amazonaws.com/jcgertigpublicimages/unchecked.png") no-repeat;
+  background-size: contain;
+  visibility: visible;
+  display: block;
+  content: "";
+  height: 16px;
+  width: 16px;
+}
+input[type="checkbox"]:checked:after {
+  background: url("https://s3.amazonaws.com/jcgertigpublicimages/checked.png") no-repeat;
+  background-size: contain;
+}
+input[type="checkbox"][readonly]:after, input[type="checkbox"][disabled]:after, input[type="checkbox"][readonly]:hover:after, input[type="checkbox"][disabled]:hover:after {
+  background-color: inherit;
+  background: url("https://s3.amazonaws.com/jcgertigpublicimages/unchecked.png") no-repeat;
+  background-size: contain;
+}
+input[type="checkbox"][readonly]:checked:after, input[type="checkbox"][disabled]:checked:after {
+  background: url("https://s3.amazonaws.com/jcgertigpublicimages/inactive-checked.png") no-repeat;
+  background-size: contain;
+}
+input[type="checkbox"] + label {
+  padding-left: 0px;
+}
 </style>
