@@ -1,19 +1,22 @@
 <template>
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your tasks here" aria-describedby="emailHelp" 
+        <div class="row d-flex justify-content-center pb-3">
+            <div class="col-6 d-flex flex-row">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="What needs to be done?" aria-describedby="emailHelp" 
                 v-model="userTodo" @keyup.enter="addTodo">
+                <button type="button" class="btn btn-info ml-2" @click="addTodo">add</button>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                <div v-for="todo in todos" :key="todo.id">
+                <div v-for="todo in todos" :key="todo.id" class="d-flex justify-content-between py-2">
                     <div>
-                     {{todo.title}} <button type="button" class="btn btn-info">x</button>
+                     {{todo.title}} 
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-info">x</button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -57,3 +60,6 @@
         }
     }
 </script>
+
+<style>
+</style>

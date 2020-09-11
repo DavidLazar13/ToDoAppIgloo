@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+  <div class="container mb-5">
+    <img src="./assets/igloo-energy.png" width="50%">
+  </div>
+      <h1>To Do List</h1>
       <ToDoList></ToDoList>
   </div>
 </template>
@@ -29,7 +32,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; 
 }
 
 h1, h2 {
